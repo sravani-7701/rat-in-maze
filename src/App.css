@@ -1,5 +1,7 @@
 *{
   margin: 0;
+  background-color:yellow;
+  
 }
 .square{
   height:8vh;
@@ -8,7 +10,7 @@
   margin: 0;
 }
 .total{
-  margin-top: 10%;
+ margin-top: 5%;
   align-items: center;
   display:flex;
   flex-direction:column;
@@ -29,4 +31,33 @@
   border: 3px solid #000;
   margin: 0;
 
+}
+.obj{
+  margin: 3% 50% 0% 45%;
+  background-color: red;
+  height:4vh;
+  width:3vw;
+  border: 3px solid #000;
+  
+
+}
+.btn {
+  background: #080808;
+  background-image: -webkit-linear-gradient(top, #080808, #0d0e0f);
+  background-image: -moz-linear-gradient(top, #080808, #0d0e0f);
+  background-image: -ms-linear-gradient(top, #080808, #0d0e0f);
+  background-image: -o-linear-gradient(top, #080808, #0d0e0f);
+  background-image: linear-gradient(to bottom, #080808, #0d0e0f);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-top: 4%;
+}
+.head{
+  margin-left: 35%;
 }

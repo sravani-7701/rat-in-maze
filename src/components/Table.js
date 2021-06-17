@@ -12,15 +12,57 @@ import Cello from './Cello'
      [1,1,0,0,0,1],
      [0,1,1,0,0,0]
    ];
-  var count=0;
- const[ans,setans]=useState([]);
- var i=2;
- var j=5;
-  const back=()=>{
-    document.getElementById(`${i}-${j}`).style.backgroundColor="blue"
+  
+ 
+ function isSafe(arr, x, y) {
+  const m = arr.length;
+  const n=arr[0].length;
+  if (x >= 0 && x < m && y >= 0 && y < n && arr[x][y] === 0) {
+    return true;
+  }
+  return false;
+}
+function solveMazeUtil(maze, x, y, sol) {
+  const m = maze.length;
+  const n=maze[0].length;
+  if (x === m- 1 && y === n - 1) {
+    sol[x][y] = 1;
+    return true;
+  }
+  if (isSafe(maze, x, y)) {
+    sol[x][y] = 1;
+    if (solveMazeUtil(maze, x + 1, y, sol)) return true;
+    if (solveMazeUtil(maze, x, y + 1, sol)) return true;
+    sol[x][y] = 0;
+    return false;
+  }
+  return false;
+}
 
+
+  const back=()=>{
+    const m=arr.length;
+    const n=arr[0].length;
+  
+      var sol = new Array(m);
+      let idx = 0;
+      for (idx = 0; idx < m; idx++) {
+        sol[idx] = new Array(n).fill(0);
+      }
+    if(solveMazeUtil(arr,0,0,sol)){
+      for( let i=0;i<m;i++){
+        for(let j=0;j<n;j++){
+          if(sol[i][j]===1){
+            document.getElementById(`${i}-${j}`).style.backgroundColor="green";
+
+          }
+  
+        }
+      }
+    }
+  
    }
-  const[flag,setflag]=useState(true);
+
 
     return (
         <div className="total">
@@ -74,7 +116,7 @@ import Cello from './Cello'
             </Cellc>
             </div>
           
-        <button onClick={back}>Find path</button>
+        <button onClick={back} className="btn">Find path</button>
         </div>
     )
 }
